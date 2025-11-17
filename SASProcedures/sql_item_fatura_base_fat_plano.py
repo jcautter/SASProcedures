@@ -4,7 +4,7 @@ import json
 import os
 import pandas as pd
 
-import SASExport
+from SASExport import SASExport
 
 class SQLItemFaturaBaseFatPlano(ProcLog):
     
@@ -18,7 +18,7 @@ class SQLItemFaturaBaseFatPlano(ProcLog):
         , 'C25': '{ano}-{mes}-25T00:00:00Z'
     }
     
-    def __init__(self, dt:str, log=False):
+    def proc_item_fatura_base_fat(self, dt:str, log=False):
         print('proc item fatura base fat plano -- Iniciado')
         print('')
         

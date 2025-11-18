@@ -8,8 +8,6 @@ from SASExport import SASExport
 
 class SQLItemFaturaBaseFatPlano(ProcLog):
     
-    file = 'ITEM_FATURA_BASE_FAT_PLANO{data}.csv'
-    
     cilco = {
         'C01': '{ano}-{mes}-01T00:00:00Z'
         , 'C07': '{ano}-{mes}-07T00:00:00Z'
@@ -23,7 +21,7 @@ class SQLItemFaturaBaseFatPlano(ProcLog):
         print('')
         
         self.ciclos = self.get_ciclos(dt)
-        self.file = self.file.format(data='_'+max(self.ciclos)[:8].replace('-', ''))
+        self.file = 'ITEM_FATURA_BASE_FAT_PLANO{data}.csv'.format(data='_'+max(self.ciclos)[:8].replace('-', ''))
         
         self.__get_path()
         self.__login(log=log)

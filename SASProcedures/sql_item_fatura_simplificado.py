@@ -8,8 +8,6 @@ from SASExport import SASExport
 
 class SQLItemFaturaSimplificado(ProcLog):
     
-    file = 'ITEM_FATURA_SIMPLIFICADO{data}.csv'
-    
     cilco = {
         'C01': '{ano}-{mes}-01T00:00:00Z'
         , 'C07': '{ano}-{mes}-07T00:00:00Z'
@@ -23,7 +21,7 @@ class SQLItemFaturaSimplificado(ProcLog):
         print('')
         
         self.data_ini = self.cilco[corte].format(ano=ano, mes=mes)
-        self.file = self.file.format(data = '_' + self.data_ini[:10].replace('-', ''))
+        self.file = 'ITEM_FATURA_SIMPLIFICADO{data}.csv'.format(data = '_' + self.data_ini[:10].replace('-', ''))
         
         self.__get_path()
         self.__login(log=log)
